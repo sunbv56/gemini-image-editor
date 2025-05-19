@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Generation</title>
+    <script src="lib/marked.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gemini Generation</h1>
+            <p>Upload images, provide a prompt, and generate variations using Google Gemini.</p>
+        </header>
+
+        <form id="generation-form">
+            <div class="form-group">
+                <label for="api-key">Google AI Studio API Key</label>
+                <div class="api-key-warning">
+                    ⚠️ **Security Warning:** Do not share this file or use it on untrusted computers if you paste your API key here. It's best practice to use server-side solutions or environment variables in production.
+                </div>
+                <input type="password" id="api-key" name="api-key" required>
+            </div>
+
+            <div class="form-group">
+                <label for="image1">Upload Image 1 (Optional)</label>
+                <input type="file" id="image1" name="image1" accept="image/jpeg, image/png, image/webp, image/heic, image/heif">
+            </div>
+
+            <div class="form-group">
+                <label for="image2">Upload Image 2 (Optional)</label>
+                <input type="file" id="image2" name="image2" accept="image/jpeg, image/png, image/webp, image/heic, image/heif">
+            </div>
+
+            <div class="form-group">
+                <label for="prompt">Prompt</label>
+                <textarea id="prompt" name="prompt" placeholder="e.g., Add a small fluffy dog next to the person" required></textarea>
+            </div>
+
+            <!-- **** NEW MODEL SELECTION **** -->
+            <div class="form-group">
+                <label for="model-select">Select Model (Must support streaming & vision)</label>
+                <select id="model-select" name="model">
+                    <option value="gemini-2.5-pro-exp-03-25">Gemini 2.5 Pro Image (Coding + Text)</option>
+                    <option value="gemini-2.0-flash-exp-image-generation">Gemini 2.0 Flash Image Generation (Image + Text)</option>
+                </select>
+                <small>Ensure the selected model is compatible with image/text generation.</small>
+            </div>
+            <!-- **** END NEW MODEL SELECTION **** -->
+
+            <div class="form-group">
+                <label for="num-requests">Number of Images to Generate</label>
+                <div class="slider-container">
+                    <input type="range" id="num-requests" name="num-requests" min="1" max="8" value="1" step="1">
+                    <span id="slider-value">1</span>
+                </div>
+            </div>
+
+            <button type="submit" id="submit-button">Generate Images</button>
+        </form>
+
+        <div id="status" style="display: none;"></div>
+        <div id="gallery"></div>
+        
+        <div id="imagePopup" class="popup-overlay" style="display: none;">
+            <span class="popup-close" onclick="closePopup()">×</span>
+            <img id="popupImage" src="" alt="Popup Image" class="popup-content">
+            <a id="popupDownloadLink" href="#" download="generated-image.png" class="popup-download-button">Download Image</a>
+        </div>
+        
+        <footer>
+            Powered by <a href="https://ai.google.dev/" target="_blank" rel="noopener noreferrer">Google Gemini</a>.
+            Note: Browser-based upscaling is not included in this version.
+        </footer>
+    </div>
+    <!-- Trong HTML -->
+    <span id="popup-close-button" class="popup-close">×</span>
+    <script src="./main.js"></script>
+</body>
+</html>

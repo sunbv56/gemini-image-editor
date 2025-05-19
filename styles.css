@@ -1,0 +1,445 @@
+:root {
+    --primary-color: #4f46e5;
+    --secondary-color: #d1d5db;
+    --background-color: #f9fafb;
+    --text-color: #1f2937;
+    --card-background: #ffffff;
+    --error-color: #ef4444;
+    --success-color: #10b981;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 800px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #6b7280;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+input[type="text"],
+input[type="password"],
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+input[type="file"] {
+    padding: 5px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.3);
+}
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+input[type="range"] {
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+#slider-value {
+    font-weight: 600;
+    min-width: 20px;
+    text-align: right;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover:not(:disabled) {
+    background-color: #4338ca;
+}
+
+button:disabled {
+    background-color: #a5b4fc;
+    cursor: not-allowed;
+}
+
+.api-key-warning {
+    background-color: #fffbeb;
+    color: #b45309;
+    padding: 10px;
+    border: 1px solid #fde68a;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+#status {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+}
+
+#status.loading {
+    background-color: #e0e7ff;
+    color: #3730a3;
+    border: 1px solid #c7d2fe;
+}
+
+#status.error {
+    background-color: #fee2e2;
+    color: var(--error-color);
+    border: 1px solid #fecaca;
+}
+
+#status.success {
+    background-color: #d1fae5;
+    color: #059669;
+    border: 1px solid #a7f3d0;
+}
+
+#gallery {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+#gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    object-fit: cover;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #6b7280;
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Gallery and Image Styles */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.image-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.gallery-image {
+    max-width: 150px;
+    height: auto;
+    display: block;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.download-button {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 0.8em;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+.download-button:hover {
+    background-color: #0056b3;
+}
+
+.generated-text {
+    border: 1px solid #eee;
+    padding: 10px;
+    margin-top: 5px;
+    background-color: #f0f0f0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-radius: 4px;
+    flex-basis: 100%;
+}
+
+/* Popup Styles */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.popup-content {
+    max-width: 90%;
+    max-height: 80%;
+    object-fit: contain;
+    display: block;
+}
+
+.popup-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.popup-download-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+}
+
+.popup-download-button:hover {
+    background-color: #218838;
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--card-background);
+    border: 1px solid var(--secondary-color);
+    color: var(--text-color);
+    border-radius: 6px;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+}
+
+.theme-toggle:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.theme-toggle-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    --primary-color: #818cf8;
+    --secondary-color: #4b5563;
+    --background-color: #111827;
+    --text-color: #e5e7eb;
+    --card-background: #1f2937;
+    --error-color: #f87171;
+    --success-color: #34d399;
+    --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark Mode Specific Styles */
+body.dark-mode .api-key-warning { 
+    background-color: #422006; 
+    color: #fbbf24; 
+    border-color: #92400e; 
+}
+
+body.dark-mode #status.loading { 
+    background-color: #312e81; 
+    color: #c7d2fe; 
+    border: 1px solid #4338ca; 
+}
+
+body.dark-mode #status.error { 
+    background-color: #7f1d1d; 
+    color: #fca5a5; 
+    border: 1px solid #b91c1c; 
+}
+
+body.dark-mode #status.success { 
+    background-color: #064e3b; 
+    color: #6ee7b7; 
+    border: 1px solid #059669; 
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 6px;
+        width: 34px;
+        height: 34px;
+    }
+    .theme-toggle-icon {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* --- Styling for the Select Element --- */
+select {
+    /* Reset default browser appearance */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* Inherit basic styles from other inputs (already applied if you added 'select' to the group) */
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    background-color: var(--card-background);
+    color: var(--text-color);
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+    /* Add custom dropdown arrow */
+    /* SVG Arrow (downwards chevron) - Color uses a common text secondary color */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3e%3cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center; /* Position arrow on the right */
+    background-size: 1.25em 1.25em; /* Adjust size as needed */
+
+    /* Add right padding to prevent text from overlapping the arrow */
+    padding-right: 2.5rem; /* Needs to be larger than left padding */
+
+    /* Make it clear it's interactive */
+    cursor: pointer;
+}
+
+/* Apply focus styles similar to other inputs */
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.3); /* Use your primary color focus shadow */
+}
+
+/* Optional: Style the options when the dropdown is open (limited styling possible) */
+select option {
+    background-color: var(--card-background);
+    color: var(--text-color);
+    /* Note: Styling options (especially background) can be inconsistent across browsers */
+}
+
+/* --- Dark Mode Adjustments for Select --- */
+body.dark-mode select {
+    /* Inherit dark mode background/text/border from other inputs */
+    background-color: var(--card-background);
+    color: var(--text-color);
+    border-color: var(--secondary-color);
+
+    /* Update arrow color for dark mode - Use a lighter gray */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%239ca3af'%3e%3cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3e%3c/svg%3e");
+}
+
+body.dark-mode select option {
+    background-color: var(--card-background);
+    color: var(--text-color);
+}
